@@ -1,99 +1,92 @@
 #!/bin/bash
-# 🏯 Bunshin v2.5 - Script d'initialisation automatique
+# 🏯 Bunshin v2.5 - Script d'initialisation automatique (Fix Windows Python 3.12)
 
 echo "=================================================="
-echo "   🏯 Initialisation de Bunshin v2.5 (Pas à Pas)   "
+echo "   🏯 Initialisation de Bunshin v2.5 (Python 3.12)   "
 echo "=================================================="
 
 # --- 2.1 & CI/CD : CRÉATION DES RÉPERTOIRES ---
-echo -e "\n[1/5] Création de l'arborescence et des dossiers CI/CD..."
-PACKAGES=(
-    "core"
-    "core/orchestrator"
-    "core/nodes"
-    "ui"
-    "memory"
-    "cloud"
-    "cloud/providers"
-    "safety"
-    "agents_factory"
-    "tests"
-)
-
-# Dossiers système et volumes de données
+echo -e "\n[1/8] Création de l'arborescence et des dossiers CI/CD..."
+PACKAGES=("core" "core/orchestrator" "core/nodes" "ui" "memory" "cloud" "cloud/providers" "safety" "agents_factory" "tests")
 mkdir -p workspace/input workspace/output memory logs .github/workflows
 
-# --- 2.2 : CRÉATION DES PACKAGES PYTHON (__init__.py) ---
-echo "[2/5] Génération des 10 fichiers __init__.py..."
+# --- 2.2 : CRÉATION DES PACKAGES PYTHON ---
+echo "[2/8] Génération des fichiers __init__.py..."
 for pkg in "${PACKAGES[@]}"; do
     mkdir -p "$pkg"
     touch "$pkg/__init__.py"
-    echo "  -> Package initialisé : $pkg/"
 done
 
 # --- 2.3 : GESTION DU .GITIGNORE ---
-echo "[3/5] Vérification et génération du .gitignore..."
+echo "[3/8] Vérification et génération du .gitignore..."
 cat << 'GIT' > .gitignore
-# Secrets & Environnement
 .env
 .env.example
-
-# Caches Python et outils
 __pycache__/
 *.pyc
 .pytest_cache/
 .chroma/
-
-# Volumes de données locaux et logs
 workspace/input/*
 workspace/output/*
 memory/*
 logs/*
-
-# Ignorer sauf les fichiers structurels
 !workspace/input/.gitkeep
 !workspace/output/.gitkeep
 !memory/.gitkeep
 !logs/.gitkeep
 GIT
-
-# Création des garde-fous .gitkeep pour pousser l'arborescence vide sur GitHub
 touch workspace/input/.gitkeep workspace/output/.gitkeep memory/.gitkeep logs/.gitkeep
-echo "  -> .gitignore configuré avec succès."
 
-# --- 2.4 : VALIDATION DES SECRETS (.env) ---
-echo "[4/5] Vérification des barrières de sécurité (.env)..."
-if [ ! -f .env ]; then
-    echo "❌ ERREUR CRITIQUE : Le fichier .env n'existe pas."
-    echo "Veuillez d'abord finaliser l'étape 1."
-    exit 1
-fi
-
-# Extraction de la clé de chiffrement
+# --- 2.4 : VALIDATION DES SECRETS ---
+echo "[4/8] Vérification des barrières de sécurité (.env)..."
+if [ ! -f .env ]; then echo "❌ ERREUR : .env manquant."; exit 1; fi
 source .env
-if [ -z "$ENCRYPTION_KEY" ]; then
-    echo "❌ ERREUR CRITIQUE : ENCRYPTION_KEY est absente ou vide dans le fichier .env."
-    echo "Le système agentique refuse de démarrer sans clé de chiffrement valide."
+if [ -z "$ENCRYPTION_KEY" ]; then echo "❌ ERREUR : ENCRYPTION_KEY vide."; exit 1; fi
+
+# --- 2.5 : VÉRIFICATION D'INFRASTRUCTURE ---
+echo "[5/8] Vérification de l'infrastructure Docker..."
+if ! docker compose version &> /dev/null; then echo "❌ ERREUR : Docker Compose v2 requis."; exit 1; fi
+
+# --- 2.6 : DÉPENDANCES DE L'HÔTE ---
+echo "[6/8] Installation des dépendances avec Python 3.12..."
+if ! py -3.12 -m pip install -r requirements-host.txt; then
+    echo "❌ ERREUR : Échec de l'installation des packages Python 3.12."
     exit 1
-else
-    echo "  -> Sécurité validée : ENCRYPTION_KEY détectée."
+fi
+py -3.12 -m spacy download fr_core_news_md
+
+# --- 2.7 : SCHÉMAS KUZU DB ---
+echo "[7/8] Initialisation des schémas de la base de données de graphes Kuzu DB..."
+py -3.12 -c "
+import kuzu
+try:
+    db = kuzu.Database('memory/kuzu_db')
+    conn = kuzu.Connection(db)
+    conn.execute('CREATE NODE TABLE Entity(name STRING, type STRING, PRIMARY KEY(name))')
+    conn.execute('CREATE NODE TABLE Document(id STRING, path STRING, PRIMARY KEY(id))')
+    conn.execute('CREATE REL TABLE MENTIONS(FROM Entity TO Document)')
+    print('  -> Schémas Kuzu DB (Entity, Document, MENTIONS) initialisés.')
+except Exception as e:
+    if 'already exists' in str(e):
+        print('  -> Graphe Kuzu DB déjà existant (Ignoré).')
+    else:
+        print('  -> Note/Erreur Kuzu :', e)
+"
+
+# --- 2.8 : INGESTION DES MODÈLES LOCAUX (OLLAMA) ---
+echo "[8/8] Vérification d'Ollama et téléchargement des modèles requis..."
+OLLAMA_HEALTH=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:11434/ || echo "000")
+if [ "$OLLAMA_HEALTH" != "200" ] && [ "$OLLAMA_HEALTH" != "404" ]; then
+    echo "❌ ERREUR : Ollama ne semble pas tourner sur http://localhost:11434"
+    echo "Veuillez lancer l'application Ollama et relancer ce script."
+    exit 1
 fi
 
-# --- 2.5 : VÉRIFICATION DE L'INFRASTRUCTURE (DOCKER) ---
-echo "[5/5] Vérification de l'infrastructure Docker..."
-if ! command -v docker &> /dev/null; then
-    echo "❌ ERREUR : Docker n'est pas installé ou n'est pas dans le PATH."
-    exit 1
-fi
-
-if ! docker compose version &> /dev/null; then
-    echo "❌ ERREUR : 'docker compose' (v2) n'est pas disponible."
-    echo "Assurez-vous que Docker Desktop v4+ est actif."
-    exit 1
-else
-    echo "  -> Infrastructure validée : Docker & Docker Compose v2 opérationnels."
-fi
+echo "  -> Téléchargement du modèle d'inférence (llama3:8b-instruct-q4_K_M)..."
+curl -s -X POST http://localhost:11434/api/pull -d '{"name": "llama3:8b-instruct-q4_K_M"}' > /dev/null
+echo "  -> Téléchargement du modèle d'embeddings (nomic-embed-text)..."
+curl -s -X POST http://localhost:11434/api/pull -d '{"name": "nomic-embed-text"}' > /dev/null
 
 echo -e "\n=================================================="
-echo " ✅ Première phase d'initialisation réussie !"
+echo " 🎉 ÉTAPE 2 TOTALEMENT RÉUSSIE ! Projet initialisé."
 echo "=================================================="
