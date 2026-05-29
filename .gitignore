@@ -1,0 +1,21 @@
+# Secrets & Environnement
+.env
+.env.example
+
+# Caches Python et outils
+__pycache__/
+*.pyc
+.pytest_cache/
+.chroma/
+
+# Volumes de données locaux et logs
+workspace/input/*
+workspace/output/*
+memory/*
+logs/*
+
+# Ignorer sauf les fichiers structurels
+!workspace/input/.gitkeep
+!workspace/output/.gitkeep
+!memory/.gitkeep
+!logs/.gitkeep
