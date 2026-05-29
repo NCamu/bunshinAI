@@ -1,0 +1,14 @@
+FROM python:3.12-slim
+
+WORKDIR /app
+
+# Installation de Streamlit et de Requests uniquement pour l'IHM
+RUN pip install --no-cache-dir streamlit requests
+
+# Copie sélective du code de l'interface utilisateur
+COPY ui/app.py ./ui/app.py
+
+EXPOSE 8501
+
+# Commande de démarrage de l'interface Streamlit
+CMD ["streamlit", "run", "ui/app.py", "--server.port=8501", "--server.address=0.0.0.0"]

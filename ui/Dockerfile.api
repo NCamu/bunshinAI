@@ -1,0 +1,19 @@
+FROM python:3.12-slim
+
+WORKDIR /app
+
+# Installation des dépendances système basiques
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+
+# Copie et installation des dépendances (en assurant fastapi et uvicorn)
+COPY requirements-host.txt .
+RUN pip install --no-cache-dir -r requirements-host.txt fastapi uvicorn click
+RUN python -m spacy download fr_core_news_md
+
+# Copie de l'intégralité du code source
+COPY . .
+
+EXPOSE 8000
+
+# Commande de démarrage de l'API REST
+CMD ["uvicorn", "ui.api_rest:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  chromadb:
+    image: chromadb/chroma:latest
+    container_name: bunshin_chromadb
+    ports:
+      - "8000:8000"
+    volumes:
+      - chromadb_data:/chroma/data
+    environment:
+      - IS_PERSISTENT=TRUE
+    networks:
+      - bunshin_network
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: bunshin_ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - bunshin_network
+
+  fastapi_backend:
+    build:
+      context: .
+      dockerfile: ui/Dockerfile.api
+    container_name: bunshin_api
+    ports:
+      - "8001:8000"
+    environment:
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
+      - RUNPOD_API_KEY=${RUNPOD_API_KEY}
+      - OLLAMA_HOST=http://ollama:11434
+      - CHROMA_HOST=chromadb
+      - CHROMA_PORT=8000
+    depends_on:
+      - ollama
+      - chromadb
+    networks:
+      - bunshin_network
+
+  streamlit_ui:
+    build:
+      context: .
+      dockerfile: ui/Dockerfile.streamlit
+    container_name: bunshin_ui
+    ports:
+      - "3000:8501"
+    environment:
+      - API_URL=http://fastapi_backend:8000
+    depends_on:
+      - fastapi_backend
+    networks:
+      - bunshin_network
+
+volumes:
+  chromadb_data:
+  ollama_data:
+
+networks:
+  bunshin_network:
+    driver: bridge
