@@ -1,0 +1,1335 @@
+✔ bunshinai-fastapi_backend  Built                                                                                            0.0s 
+ ✔ bunshinai-streamlit_ui     Built                                                                                            0.0s 
+[+] Running 7/7
+ ✔ Network bunshinai_bunshin_network  Created                                                                                  0.1s 
+ ✔ Volume bunshinai_ollama_data       Created                                                                                  0.0s 
+ ✔ Volume bunshinai_chromadb_data     Created                                                                                  0.0s 
+ ✔ Container bunshin_ollama           Created                                                                                  1.3s 
+ ✔ Container bunshin_chromadb         Created                                                                                  1.3s 
+ ✔ Container bunshin_api              Created                                                                                  0.4s 
+ ✔ Container bunshin_ui               Created                                                                                  0.2s 
+Attaching to bunshin_api, bunshin_chromadb, bunshin_ollama, bunshin_ui
+bunshin_chromadb  | 
+bunshin_chromadb  | ==========
+bunshin_chromadb  | persist_path: "/data"
+bunshin_chromadb  | 
+bunshin_chromadb  | ==========
+bunshin_chromadb  | 
+bunshin_chromadb  | 
+bunshin_chromadb  |                 (((((((((    (((((####
+bunshin_chromadb  |              ((((((((((((((((((((((#########
+bunshin_chromadb  |            ((((((((((((((((((((((((###########
+bunshin_chromadb  |          ((((((((((((((((((((((((((############
+bunshin_chromadb  |         (((((((((((((((((((((((((((#############
+bunshin_chromadb  |         (((((((((((((((((((((((((((#############
+bunshin_chromadb  |          (((((((((((((((((((((((((##############
+bunshin_chromadb  |          ((((((((((((((((((((((((##############
+bunshin_chromadb  |            (((((((((((((((((((((#############
+bunshin_chromadb  |              ((((((((((((((((##############
+bunshin_chromadb  |                 (((((((((    #########
+bunshin_chromadb  | 
+bunshin_chromadb  | Saving data to: /data
+bunshin_chromadb  | Connect to Chroma at: http://localhost:8000
+bunshin_chromadb  | Getting started guide: https://docs.trychroma.com/docs/overview/getting-started
+bunshin_chromadb  | 
+bunshin_chromadb  | ☁️ To deploy your DB - try Chroma Cloud!
+bunshin_chromadb  | - Sign up: https://trychroma.com/signup
+bunshin_chromadb  | - Copy your data to Cloud: chroma copy --to-cloud --all
+bunshin_chromadb  | 
+bunshin_chromadb  | No telemetry is configured.
+bunshin_ollama    | Couldn't find '/root/.ollama/id_ed25519'. Generating new private key.
+bunshin_ollama    | Your new public key is: 
+bunshin_ollama    | 
+bunshin_ollama    | ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB24XRqXRq6kOaKG73uiUxYcFyFcp3hxkRXFgETHlmEC
+bunshin_ollama    | 
+bunshin_ollama    | time=2026-06-01T11:33:48.992Z level=INFO source=routes.go:1802 msg="server config" env="map[CUDA_VISIBLE_DEVICES: GGML_VK_VISIBLE_DEVICES: GPU_DEVICE_ORDINAL: HIP_VISIBLE_DEVICES: HSA_OVERRIDE_GFX_VERSION: HTTPS_PROXY: HTTP_PROXY: NO_PROXY: OLLAMA_CONTEXT_LENGTH:0 OLLAMA_DEBUG:INFO OLLAMA_DEBUG_LOG_REQUESTS:false OLLAMA_EDITOR: OLLAMA_FLASH_ATTENTION:false OLLAMA_GPU_OVERHEAD:0 OLLAMA_HOST:http://0.0.0.0:11434 OLLAMA_KEEP_ALIVE:5m0s OLLAMA_KV_CACHE_TYPE: OLLAMA_LLM_LIBRARY: OLLAMA_LOAD_TIMEOUT:5m0s OLLAMA_MAX_LOADED_MODELS:0 OLLAMA_MAX_QUEUE:512 OLLAMA_MAX_TRANSFER_STREAMS:4 OLLAMA_MODELS:/root/.ollama/models OLLAMA_MULTIUSER_CACHE:false OLLAMA_NEW_ENGINE:false OLLAMA_NOHISTORY:false OLLAMA_NOPRUNE:false OLLAMA_NO_CLOUD:false OLLAMA_NUM_PARALLEL:1 OLLAMA_ORIGINS:[http://localhost https://localhost http://localhost:* https://localhost:* http://127.0.0.1 https://127.0.0.1 http://127.0.0.1:* https://127.0.0.1:* http://0.0.0.0 https://0.0.0.0 http://0.0.0.0:* https://0.0.0.0:* app://* file://* tauri://* vscode-webview://* vscode-file://*] OLLAMA_REMOTES:[ollama.com] OLLAMA_SCHED_SPREAD:false OLLAMA_VULKAN:false ROCR_VISIBLE_DEVICES: http_proxy: https_proxy: no_proxy:]"
+bunshin_ollama    | time=2026-06-01T11:33:48.997Z level=INFO source=routes.go:1804 msg="Ollama cloud disabled: false"
+bunshin_ollama    | time=2026-06-01T11:33:49.003Z level=INFO source=images.go:517 msg="total blobs: 0"
+bunshin_ollama    | time=2026-06-01T11:33:49.003Z level=INFO source=images.go:524 msg="total unused blobs removed: 0"
+bunshin_ollama    | time=2026-06-01T11:33:49.019Z level=INFO source=routes.go:1864 msg="Listening on [::]:11434 (version 0.24.0)"
+bunshin_ollama    | time=2026-06-01T11:33:49.027Z level=INFO source=runner.go:67 msg="discovering available GPUs..."
+bunshin_ollama    | time=2026-06-01T11:33:49.048Z level=INFO source=server.go:433 msg="starting runner" cmd="/usr/bin/ollama runner --ollama-engine --port 43465"
+bunshin_ollama    | time=2026-06-01T11:33:49.283Z level=INFO source=server.go:433 msg="starting runner" cmd="/usr/bin/ollama runner --ollama-engine --port 40453"
+bunshin_ollama    | time=2026-06-01T11:33:49.472Z level=INFO source=runner.go:106 msg="experimental Vulkan support disabled.  To enable, set OLLAMA_VULKAN=1"
+bunshin_ollama    | time=2026-06-01T11:33:49.477Z level=INFO source=types.go:60 msg="inference compute" id=cpu library=cpu compute="" name=cpu description=cpu libdirs=ollama driver="" pci_id="" type="" total="7.4 GiB" available="7.4 GiB"
+bunshin_ollama    | time=2026-06-01T11:33:49.477Z level=INFO source=routes.go:1914 msg="vram-based default context" total_vram="0 B" default_num_ctx=4096
+bunshin_ollama    | time=2026-06-01T11:33:49.534Z level=INFO source=model_recommendations.go:177 msg="model recommendations cache sleep scheduled" wait=3h51m40.178754638s consecutive_failures=0
+bunshin_ui        | 
+bunshin_ui        | Collecting usage statistics. To deactivate, set browser.gatherUsageStats to false.
+bunshin_ui        | 
+bunshin_ui        | 2026-06-01 11:33:51.618 Uvicorn server started on 0.0.0.0:8501
+bunshin_api       | INFO:bunshin.api:Compilation du graphe LangGraph Bunshin...
+bunshin_api       | INFO:bunshin.api:Graphe compilé et prêt à l'action.
+bunshin_api       | INFO:     Started server process [1]
+bunshin_api       | INFO:     Waiting for application startup.
+bunshin_api       | INFO:     Application startup complete.
+bunshin_api       | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+bunshin_ui        | 
+bunshin_ui        |   You can now view your Streamlit app in your browser.
+bunshin_ui        | 
+bunshin_ui        |   Local URL: http://localhost:8501
+bunshin_ui        |   Network URL: http://172.20.0.5:8501
+bunshin_ui        |   External URL: http://163.5.3.73:8501
+bunshin_ui        | 
+bunshin_ollama    | [GIN] 2026/06/01 - 11:42:55 | 200 |   15.324593ms |       127.0.0.1 | HEAD     "/"
+bunshin_ollama    | time=2026-06-01T11:42:56.894Z level=INFO source=download.go:179 msg="downloading 29d8c98fa6b0 in 10 100 MB part(s)"
+bunshin_ollama    | time=2026-06-01T11:43:45.238Z level=INFO source=download.go:179 msg="downloading 66b9ea09bd5b in 1 68 B part(s)"
+bunshin_ollama    | time=2026-06-01T11:43:46.563Z level=INFO source=download.go:179 msg="downloading 1e65450c3067 in 1 1.6 KB part(s)"
+bunshin_ollama    | time=2026-06-01T11:43:47.913Z level=INFO source=download.go:179 msg="downloading 832dd9e00a68 in 1 11 KB part(s)"
+bunshin_ollama    | time=2026-06-01T11:43:49.521Z level=INFO source=download.go:179 msg="downloading 152cb442202b in 1 487 B part(s)"
+bunshin_ollama    | [GIN] 2026/06/01 - 11:43:52 | 200 | 56.675081159s |       127.0.0.1 | POST     "/api/pull"
+bunshin_ollama    | [GIN] 2026/06/01 - 11:43:53 | 200 |     389.443µs |       127.0.0.1 | HEAD     "/"
+bunshin_ollama    | time=2026-06-01T11:43:55.960Z level=INFO source=download.go:179 msg="downloading 633fc5be925f in 16 136 MB part(s)"
+bunshin_ollama    | time=2026-06-01T11:45:48.464Z level=INFO source=download.go:179 msg="downloading fa8235e5b48f in 1 1.1 KB part(s)"
+bunshin_ollama    | time=2026-06-01T11:45:49.799Z level=INFO source=download.go:179 msg="downloading 542b217f179c in 1 148 B part(s)"
+bunshin_ollama    | time=2026-06-01T11:45:51.125Z level=INFO source=download.go:179 msg="downloading 8dde1baf1db0 in 1 78 B part(s)"
+bunshin_ollama    | time=2026-06-01T11:45:52.457Z level=INFO source=download.go:179 msg="downloading 23291dc44752 in 1 483 B part(s)"
+bunshin_ollama    | [GIN] 2026/06/01 - 11:45:57 | 200 |          2m3s |       127.0.0.1 | POST     "/api/pull"
+bunshin_api       | INFO:bunshin.api:Nouvelle requête reçue : 'qui est le president de la france?' sur le thread local_thread_1978fe18
+bunshin_api       | INFO:bunshin.core.orchestrator:--- [Nœud : Initialisation de la Stratégie] ---
+bunshin_api       | INFO:bunshin.core.orchestrator:--- [Nœud : Planification] (Stage 1 : qwen2.5-coder:1.5b) ---
+bunshin_api       | INFO:bunshin.core.brain:Envoi de la requête au modèle 'qwen2.5-coder:1.5b' via http://ollama:11434/api/generate (Timeout max autorisé : 15s)...
+bunshin_ollama    | time=2026-06-01T11:48:23.067Z level=WARN source=cpu_linux.go:130 msg="failed to parse CPU allowed micro secs" error="strconv.ParseInt: parsing \"max\": invalid syntax"
+bunshin_ollama    | llama_model_loader: loaded meta data with 34 key-value pairs and 338 tensors from /root/.ollama/models/blobs/sha256-29d8c98fa6b098e200069bfb88b9508dc3e85586d20cba59f8dda9a808165104 (version GGUF V3 (latest))
+bunshin_ollama    | llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+bunshin_ollama    | llama_model_loader: - kv   0:                       general.architecture str              = qwen2
+bunshin_ollama    | llama_model_loader: - kv   1:                               general.type str              = model
+bunshin_ollama    | llama_model_loader: - kv   2:                               general.name str              = Qwen2.5 Coder 1.5B Instruct
+bunshin_ollama    | llama_model_loader: - kv   3:                           general.finetune str              = Instruct
+bunshin_ollama    | llama_model_loader: - kv   4:                           general.basename str              = Qwen2.5-Coder
+bunshin_ollama    | llama_model_loader: - kv   5:                         general.size_label str              = 1.5B
+bunshin_ollama    | llama_model_loader: - kv   6:                            general.license str              = apache-2.0
+bunshin_ollama    | llama_model_loader: - kv   7:                       general.license.link str              = https://huggingface.co/Qwen/Qwen2.5-C...
+bunshin_ollama    | llama_model_loader: - kv   8:                   general.base_model.count u32              = 1
+bunshin_ollama    | llama_model_loader: - kv   9:                  general.base_model.0.name str              = Qwen2.5 Coder 1.5B
+bunshin_ollama    | llama_model_loader: - kv  10:          general.base_model.0.organization str              = Qwen
+bunshin_ollama    | llama_model_loader: - kv  11:              general.base_model.0.repo_url str              = https://huggingface.co/Qwen/Qwen2.5-C...
+bunshin_ollama    | llama_model_loader: - kv  12:                               general.tags arr[str,6]       = ["code", "codeqwen", "chat", "qwen", ...
+bunshin_ollama    | llama_model_loader: - kv  13:                          general.languages arr[str,1]       = ["en"]
+bunshin_ollama    | llama_model_loader: - kv  14:                          qwen2.block_count u32              = 28
+bunshin_ollama    | llama_model_loader: - kv  15:                       qwen2.context_length u32              = 32768
+bunshin_ollama    | llama_model_loader: - kv  16:                     qwen2.embedding_length u32              = 1536
+bunshin_ollama    | llama_model_loader: - kv  17:                  qwen2.feed_forward_length u32              = 8960
+bunshin_ollama    | llama_model_loader: - kv  18:                 qwen2.attention.head_count u32              = 12
+bunshin_ollama    | llama_model_loader: - kv  19:              qwen2.attention.head_count_kv u32              = 2
+bunshin_ollama    | llama_model_loader: - kv  20:                       qwen2.rope.freq_base f32              = 1000000.000000
+bunshin_ollama    | llama_model_loader: - kv  21:     qwen2.attention.layer_norm_rms_epsilon f32              = 0.000001
+bunshin_ollama    | llama_model_loader: - kv  22:                          general.file_type u32              = 15
+bunshin_ollama    | llama_model_loader: - kv  23:                       tokenizer.ggml.model str              = gpt2
+bunshin_ollama    | llama_model_loader: - kv  24:                         tokenizer.ggml.pre str              = qwen2
+bunshin_ollama    | llama_model_loader: - kv  25:                      tokenizer.ggml.tokens arr[str,151936]  = ["!", "\"", "#", "$", "%", "&", "'", ...
+bunshin_ollama    | llama_model_loader: - kv  26:                  tokenizer.ggml.token_type arr[i32,151936]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+bunshin_ollama    | llama_model_loader: - kv  27:                      tokenizer.ggml.merges arr[str,151387]  = ["Ġ Ġ", "ĠĠ ĠĠ", "i n", "Ġ t",...
+bunshin_ollama    | llama_model_loader: - kv  28:                tokenizer.ggml.eos_token_id u32              = 151645
+bunshin_ollama    | llama_model_loader: - kv  29:            tokenizer.ggml.padding_token_id u32              = 151643
+bunshin_ollama    | llama_model_loader: - kv  30:                tokenizer.ggml.bos_token_id u32              = 151643
+bunshin_ollama    | llama_model_loader: - kv  31:               tokenizer.ggml.add_bos_token bool             = false
+bunshin_ollama    | llama_model_loader: - kv  32:                    tokenizer.chat_template str              = {%- if tools %}\n    {{- '<|im_start|>...
+bunshin_ollama    | llama_model_loader: - kv  33:               general.quantization_version u32              = 2
+bunshin_ollama    | llama_model_loader: - type  f32:  141 tensors
+bunshin_ollama    | llama_model_loader: - type q4_K:  168 tensors
+bunshin_ollama    | llama_model_loader: - type q6_K:   29 tensors
+bunshin_ollama    | print_info: file format = GGUF V3 (latest)
+bunshin_ollama    | print_info: file type   = Q4_K - Medium
+bunshin_ollama    | print_info: file size   = 934.69 MiB (5.08 BPW) 
+bunshin_ollama    | load: printing all EOG tokens:
+bunshin_ollama    | load:   - 151643 ('<|endoftext|>')
+bunshin_ollama    | load:   - 151645 ('<|im_end|>')
+bunshin_ollama    | load:   - 151662 ('<|fim_pad|>')
+bunshin_ollama    | load:   - 151663 ('<|repo_name|>')
+bunshin_ollama    | load:   - 151664 ('<|file_sep|>')
+bunshin_ollama    | load: special tokens cache size = 22
+bunshin_ollama    | load: token to piece cache size = 0.9310 MB
+bunshin_ollama    | print_info: arch             = qwen2
+bunshin_ollama    | print_info: vocab_only       = 1
+bunshin_ollama    | print_info: no_alloc         = 0
+bunshin_ollama    | print_info: model type       = ?B
+bunshin_ollama    | print_info: model params     = 1.54 B
+bunshin_ollama    | print_info: general.name     = Qwen2.5 Coder 1.5B Instruct
+bunshin_ollama    | print_info: vocab type       = BPE
+bunshin_ollama    | print_info: n_vocab          = 151936
+bunshin_ollama    | print_info: n_merges         = 151387
+bunshin_ollama    | print_info: BOS token        = 151643 '<|endoftext|>'
+bunshin_ollama    | print_info: EOS token        = 151645 '<|im_end|>'
+bunshin_ollama    | print_info: EOT token        = 151645 '<|im_end|>'
+bunshin_ollama    | print_info: PAD token        = 151643 '<|endoftext|>'
+bunshin_ollama    | print_info: LF token         = 198 'Ċ'
+bunshin_ollama    | print_info: FIM PRE token    = 151659 '<|fim_prefix|>'
+bunshin_ollama    | print_info: FIM SUF token    = 151661 '<|fim_suffix|>'
+bunshin_ollama    | print_info: FIM MID token    = 151660 '<|fim_middle|>'
+bunshin_ollama    | print_info: FIM PAD token    = 151662 '<|fim_pad|>'
+bunshin_ollama    | print_info: FIM REP token    = 151663 '<|repo_name|>'
+bunshin_ollama    | print_info: FIM SEP token    = 151664 '<|file_sep|>'
+bunshin_ollama    | print_info: EOG token        = 151643 '<|endoftext|>'
+bunshin_ollama    | print_info: EOG token        = 151645 '<|im_end|>'
+bunshin_ollama    | print_info: EOG token        = 151662 '<|fim_pad|>'
+bunshin_ollama    | print_info: EOG token        = 151663 '<|repo_name|>'
+bunshin_ollama    | print_info: EOG token        = 151664 '<|file_sep|>'
+bunshin_ollama    | print_info: max token length = 256
+bunshin_ollama    | llama_model_load: vocab only - skipping tensors
+bunshin_ollama    | time=2026-06-01T11:48:23.949Z level=INFO source=server.go:433 msg="starting runner" cmd="/usr/bin/ollama runner --model /root/.ollama/models/blobs/sha256-29d8c98fa6b098e200069bfb88b9508dc3e85586d20cba59f8dda9a808165104 --port 34207"
+bunshin_ollama    | time=2026-06-01T11:48:23.964Z level=INFO source=sched.go:484 msg="system memory" total="7.4 GiB" free="4.4 GiB" free_swap="1.9 GiB"
+bunshin_ollama    | time=2026-06-01T11:48:23.965Z level=INFO source=server.go:532 msg="loading model" "model layers"=29 requested=-1
+bunshin_ollama    | time=2026-06-01T11:48:23.973Z level=INFO source=device.go:245 msg="model weights" device=CPU size="934.7 MiB"
+bunshin_ollama    | time=2026-06-01T11:48:23.974Z level=INFO source=device.go:256 msg="kv cache" device=CPU size="112.0 MiB"
+bunshin_ollama    | time=2026-06-01T11:48:23.974Z level=INFO source=device.go:272 msg="total memory" size="1.0 GiB"
+bunshin_ollama    | time=2026-06-01T11:48:24.119Z level=INFO source=runner.go:965 msg="starting go runner"
+bunshin_ollama    | load_backend: loaded CPU backend from /usr/lib/ollama/libggml-cpu-haswell.so
+bunshin_ollama    | time=2026-06-01T11:48:24.186Z level=INFO source=ggml.go:104 msg=system CPU.0.SSE3=1 CPU.0.SSSE3=1 CPU.0.AVX=1 CPU.0.AVX2=1 CPU.0.F16C=1 CPU.0.FMA=1 CPU.0.BMI2=1 CPU.0.LLAMAFILE=1 CPU.1.LLAMAFILE=1 compiler=cgo(gcc)
+bunshin_ollama    | time=2026-06-01T11:48:24.219Z level=INFO source=runner.go:1001 msg="Server listening on 127.0.0.1:34207"
+bunshin_ollama    | time=2026-06-01T11:48:24.240Z level=INFO source=runner.go:895 msg=load request="{Operation:commit LoraPath:[] Parallel:1 BatchSize:512 FlashAttention:Auto KvSize:4096 KvCacheType: NumThreads:8 GPULayers:[] MultiUserCache:false ProjectorPath: MainGPU:0 UseMmap:false}"
+bunshin_ollama    | time=2026-06-01T11:48:24.246Z level=INFO source=server.go:1385 msg="waiting for llama runner to start responding"
+bunshin_ollama    | time=2026-06-01T11:48:24.248Z level=INFO source=server.go:1428 msg="waiting for server to become available" status="llm server loading model"
+bunshin_ollama    | llama_model_loader: loaded meta data with 34 key-value pairs and 338 tensors from /root/.ollama/models/blobs/sha256-29d8c98fa6b098e200069bfb88b9508dc3e85586d20cba59f8dda9a808165104 (version GGUF V3 (latest))
+bunshin_ollama    | llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+bunshin_ollama    | llama_model_loader: - kv   0:                       general.architecture str              = qwen2
+bunshin_ollama    | llama_model_loader: - kv   1:                               general.type str              = model
+bunshin_ollama    | llama_model_loader: - kv   2:                               general.name str              = Qwen2.5 Coder 1.5B Instruct
+bunshin_ollama    | llama_model_loader: - kv   3:                           general.finetune str              = Instruct
+bunshin_ollama    | llama_model_loader: - kv   4:                           general.basename str              = Qwen2.5-Coder
+bunshin_ollama    | llama_model_loader: - kv   5:                         general.size_label str              = 1.5B
+bunshin_ollama    | llama_model_loader: - kv   6:                            general.license str              = apache-2.0
+bunshin_ollama    | llama_model_loader: - kv   7:                       general.license.link str              = https://huggingface.co/Qwen/Qwen2.5-C...
+bunshin_ollama    | llama_model_loader: - kv   8:                   general.base_model.count u32              = 1
+bunshin_ollama    | llama_model_loader: - kv   9:                  general.base_model.0.name str              = Qwen2.5 Coder 1.5B
+bunshin_ollama    | llama_model_loader: - kv  10:          general.base_model.0.organization str              = Qwen
+bunshin_ollama    | llama_model_loader: - kv  11:              general.base_model.0.repo_url str              = https://huggingface.co/Qwen/Qwen2.5-C...
+bunshin_ollama    | llama_model_loader: - kv  12:                               general.tags arr[str,6]       = ["code", "codeqwen", "chat", "qwen", ...
+bunshin_ollama    | llama_model_loader: - kv  13:                          general.languages arr[str,1]       = ["en"]
+bunshin_ollama    | llama_model_loader: - kv  14:                          qwen2.block_count u32              = 28
+bunshin_ollama    | llama_model_loader: - kv  15:                       qwen2.context_length u32              = 32768
+bunshin_ollama    | llama_model_loader: - kv  16:                     qwen2.embedding_length u32              = 1536
+bunshin_ollama    | llama_model_loader: - kv  17:                  qwen2.feed_forward_length u32              = 8960
+bunshin_ollama    | llama_model_loader: - kv  18:                 qwen2.attention.head_count u32              = 12
+bunshin_ollama    | llama_model_loader: - kv  19:              qwen2.attention.head_count_kv u32              = 2
+bunshin_ollama    | llama_model_loader: - kv  20:                       qwen2.rope.freq_base f32              = 1000000.000000
+bunshin_ollama    | llama_model_loader: - kv  21:     qwen2.attention.layer_norm_rms_epsilon f32              = 0.000001
+bunshin_ollama    | llama_model_loader: - kv  22:                          general.file_type u32              = 15
+bunshin_ollama    | llama_model_loader: - kv  23:                       tokenizer.ggml.model str              = gpt2
+bunshin_ollama    | llama_model_loader: - kv  24:                         tokenizer.ggml.pre str              = qwen2
+bunshin_ollama    | llama_model_loader: - kv  25:                      tokenizer.ggml.tokens arr[str,151936]  = ["!", "\"", "#", "$", "%", "&", "'", ...
+bunshin_ollama    | llama_model_loader: - kv  26:                  tokenizer.ggml.token_type arr[i32,151936]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+bunshin_ollama    | llama_model_loader: - kv  27:                      tokenizer.ggml.merges arr[str,151387]  = ["Ġ Ġ", "ĠĠ ĠĠ", "i n", "Ġ t",...
+bunshin_ollama    | llama_model_loader: - kv  28:                tokenizer.ggml.eos_token_id u32              = 151645
+bunshin_ollama    | llama_model_loader: - kv  29:            tokenizer.ggml.padding_token_id u32              = 151643
+bunshin_ollama    | llama_model_loader: - kv  30:                tokenizer.ggml.bos_token_id u32              = 151643
+bunshin_ollama    | llama_model_loader: - kv  31:               tokenizer.ggml.add_bos_token bool             = false
+bunshin_ollama    | llama_model_loader: - kv  32:                    tokenizer.chat_template str              = {%- if tools %}\n    {{- '<|im_start|>...
+bunshin_ollama    | llama_model_loader: - kv  33:               general.quantization_version u32              = 2
+bunshin_ollama    | llama_model_loader: - type  f32:  141 tensors
+bunshin_ollama    | llama_model_loader: - type q4_K:  168 tensors
+bunshin_ollama    | llama_model_loader: - type q6_K:   29 tensors
+bunshin_ollama    | print_info: file format = GGUF V3 (latest)
+bunshin_ollama    | print_info: file type   = Q4_K - Medium
+bunshin_ollama    | print_info: file size   = 934.69 MiB (5.08 BPW) 
+bunshin_ollama    | load: printing all EOG tokens:
+bunshin_ollama    | load:   - 151643 ('<|endoftext|>')
+bunshin_ollama    | load:   - 151645 ('<|im_end|>')
+bunshin_ollama    | load:   - 151662 ('<|fim_pad|>')
+bunshin_ollama    | load:   - 151663 ('<|repo_name|>')
+bunshin_ollama    | load:   - 151664 ('<|file_sep|>')
+bunshin_ollama    | load: special tokens cache size = 22
+bunshin_ollama    | load: token to piece cache size = 0.9310 MB
+bunshin_ollama    | print_info: arch             = qwen2
+bunshin_ollama    | print_info: vocab_only       = 0
+bunshin_ollama    | print_info: no_alloc         = 0
+bunshin_ollama    | print_info: n_ctx_train      = 32768
+bunshin_ollama    | print_info: n_embd           = 1536
+bunshin_ollama    | print_info: n_embd_inp       = 1536
+bunshin_ollama    | print_info: n_layer          = 28
+bunshin_ollama    | print_info: n_head           = 12
+bunshin_ollama    | print_info: n_head_kv        = 2
+bunshin_ollama    | print_info: n_rot            = 128
+bunshin_ollama    | print_info: n_swa            = 0
+bunshin_ollama    | print_info: is_swa_any       = 0
+bunshin_ollama    | print_info: n_embd_head_k    = 128
+bunshin_ollama    | print_info: n_embd_head_v    = 128
+bunshin_ollama    | print_info: n_gqa            = 6
+bunshin_ollama    | print_info: n_embd_k_gqa     = 256
+bunshin_ollama    | print_info: n_embd_v_gqa     = 256
+bunshin_ollama    | print_info: f_norm_eps       = 0.0e+00
+bunshin_ollama    | print_info: f_norm_rms_eps   = 1.0e-06
+bunshin_ollama    | print_info: f_clamp_kqv      = 0.0e+00
+bunshin_ollama    | print_info: f_max_alibi_bias = 0.0e+00
+bunshin_ollama    | print_info: f_logit_scale    = 0.0e+00
+bunshin_ollama    | print_info: f_attn_scale     = 0.0e+00
+bunshin_ollama    | print_info: n_ff             = 8960
+bunshin_ollama    | print_info: n_expert         = 0
+bunshin_ollama    | print_info: n_expert_used    = 0
+bunshin_ollama    | print_info: n_expert_groups  = 0
+bunshin_ollama    | print_info: n_group_used     = 0
+bunshin_ollama    | print_info: causal attn      = 1
+bunshin_ollama    | print_info: pooling type     = -1
+bunshin_ollama    | print_info: rope type        = 2
+bunshin_ollama    | print_info: rope scaling     = linear
+bunshin_ollama    | print_info: freq_base_train  = 1000000.0
+bunshin_ollama    | print_info: freq_scale_train = 1
+bunshin_ollama    | print_info: n_ctx_orig_yarn  = 32768
+bunshin_ollama    | print_info: rope_yarn_log_mul= 0.0000
+bunshin_ollama    | print_info: rope_finetuned   = unknown
+bunshin_ollama    | print_info: model type       = 1.5B
+bunshin_ollama    | print_info: model params     = 1.54 B
+bunshin_ollama    | print_info: general.name     = Qwen2.5 Coder 1.5B Instruct
+bunshin_ollama    | print_info: vocab type       = BPE
+bunshin_ollama    | print_info: n_vocab          = 151936
+bunshin_ollama    | print_info: n_merges         = 151387
+bunshin_ollama    | print_info: BOS token        = 151643 '<|endoftext|>'
+bunshin_ollama    | print_info: EOS token        = 151645 '<|im_end|>'
+bunshin_ollama    | print_info: EOT token        = 151645 '<|im_end|>'
+bunshin_ollama    | print_info: PAD token        = 151643 '<|endoftext|>'
+bunshin_ollama    | print_info: LF token         = 198 'Ċ'
+bunshin_ollama    | print_info: FIM PRE token    = 151659 '<|fim_prefix|>'
+bunshin_ollama    | print_info: FIM SUF token    = 151661 '<|fim_suffix|>'
+bunshin_ollama    | print_info: FIM MID token    = 151660 '<|fim_middle|>'
+bunshin_ollama    | print_info: FIM PAD token    = 151662 '<|fim_pad|>'
+bunshin_ollama    | print_info: FIM REP token    = 151663 '<|repo_name|>'
+bunshin_ollama    | print_info: FIM SEP token    = 151664 '<|file_sep|>'
+bunshin_ollama    | print_info: EOG token        = 151643 '<|endoftext|>'
+bunshin_ollama    | print_info: EOG token        = 151645 '<|im_end|>'
+bunshin_ollama    | print_info: EOG token        = 151662 '<|fim_pad|>'
+bunshin_ollama    | print_info: EOG token        = 151663 '<|repo_name|>'
+bunshin_ollama    | print_info: EOG token        = 151664 '<|file_sep|>'
+bunshin_ollama    | print_info: max token length = 256
+bunshin_ollama    | load_tensors: loading model tensors, this can take a while... (mmap = false)
+bunshin_ollama    | load_tensors:          CPU model buffer size =   934.69 MiB
+bunshin_api       | WARNING:bunshin.core.brain:⏰ SEUIL ATTEINT : Le modèle 'qwen2.5-coder:1.5b' a dépassé la limite de 15s !
+bunshin_api       | WARNING:bunshin.core.orchestrator:⚠️ Échec de planification au Stage 1 : Le modèle Ollama 'qwen2.5-coder:1.5b' a mis trop de temps à générer une réponse.
+bunshin_api       | INFO:bunshin.core.orchestrator:--- [Nœud : Exécution] (Stage 1 : qwen2.5-coder:1.5b) ---
+bunshin_api       | INFO:bunshin.core.orchestrator:--- [Nœud : Vérification] ---
+bunshin_api       | INFO:bunshin.core.orchestrator:⏱️ [Vérification] Validé : False. Prochain Stage ciblé : 2
+bunshin_ollama    | time=2026-06-01T11:48:37.618Z level=WARN source=server.go:1392 msg="client connection closed before server finished loading, aborting load"
+
+
+bunshin_api       | INFO:bunshin.core.orchestrator:--- [Nœud : Validation Humaine (HITL)] ---
+bunshin_ollama    | time=2026-06-01T11:48:37.623Z level=INFO source=sched.go:511 msg="Load failed" model=/root/.ollama/models/blobs/sha256-29d8c98fa6b098e200069bfb88b9508dc3e85586d20cba59f8dda9a808165104 error="timed out waiting for llama runner to start: context canceled"
+
+
+bunshin_api       | INFO:bunshin.core.orchestrator:--- [Nœud : Planification] (Stage 2 : phi3:mini) ---
+bunshin_api       | INFO:bunshin.core.brain:Envoi de la requête au modèle 'phi3:mini' via http://ollama:11434/api/generate (Timeout max autorisé : 20s)...
+bunshin_ollama    | [GIN] 2026/06/01 - 11:48:38 | 499 | 15.566407226s |      172.20.0.4 | POST     "/api/generate"
+bunshin_ollama    | time=2026-06-01T11:48:38.069Z level=WARN source=cpu_linux.go:130 msg="failed to parse CPU allowed micro secs" error="strconv.ParseInt: parsing \"max\": invalid syntax"
+bunshin_ollama    | llama_model_loader: loaded meta data with 36 key-value pairs and 197 tensors from /root/.ollama/models/blobs/sha256-633fc5be925f9a484b61d6f9b9a78021eeb462100bd557309f01ba84cac26adf (version GGUF V3 (latest))
+bunshin_ollama    | llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+bunshin_ollama    | llama_model_loader: - kv   0:                       general.architecture str              = phi3
+bunshin_ollama    | llama_model_loader: - kv   1:                               general.type str              = model
+bunshin_ollama    | llama_model_loader: - kv   2:                               general.name str              = Phi 3 Mini 128k Instruct
+bunshin_ollama    | llama_model_loader: - kv   3:                           general.finetune str              = 128k-instruct
+bunshin_ollama    | llama_model_loader: - kv   4:                           general.basename str              = Phi-3
+bunshin_ollama    | llama_model_loader: - kv   5:                         general.size_label str              = mini
+bunshin_ollama    | llama_model_loader: - kv   6:                            general.license str              = mit
+bunshin_ollama    | llama_model_loader: - kv   7:                       general.license.link str              = https://huggingface.co/microsoft/Phi-...
+bunshin_ollama    | llama_model_loader: - kv   8:                               general.tags arr[str,3]       = ["nlp", "code", "text-generation"]
+bunshin_ollama    | llama_model_loader: - kv   9:                          general.languages arr[str,1]       = ["en"]
+bunshin_ollama    | llama_model_loader: - kv  10:                        phi3.context_length u32              = 131072
+bunshin_ollama    | llama_model_loader: - kv  11:  phi3.rope.scaling.original_context_length u32              = 4096
+bunshin_ollama    | llama_model_loader: - kv  12:                      phi3.embedding_length u32              = 3072
+bunshin_ollama    | llama_model_loader: - kv  13:                   phi3.feed_forward_length u32              = 8192
+bunshin_ollama    | llama_model_loader: - kv  14:                           phi3.block_count u32              = 32
+bunshin_ollama    | llama_model_loader: - kv  15:                  phi3.attention.head_count u32              = 32
+bunshin_ollama    | llama_model_loader: - kv  16:               phi3.attention.head_count_kv u32              = 32
+bunshin_ollama    | llama_model_loader: - kv  17:      phi3.attention.layer_norm_rms_epsilon f32              = 0.000010
+bunshin_ollama    | llama_model_loader: - kv  18:                  phi3.rope.dimension_count u32              = 96
+bunshin_ollama    | llama_model_loader: - kv  19:                        phi3.rope.freq_base f32              = 10000.000000
+bunshin_ollama    | llama_model_loader: - kv  20:                          general.file_type u32              = 2
+bunshin_ollama    | llama_model_loader: - kv  21:              phi3.attention.sliding_window u32              = 262144
+bunshin_ollama    | llama_model_loader: - kv  22:              phi3.rope.scaling.attn_factor f32              = 1.190238
+bunshin_ollama    | llama_model_loader: - kv  23:                       tokenizer.ggml.model str              = llama
+bunshin_ollama    | llama_model_loader: - kv  24:                         tokenizer.ggml.pre str              = default
+bunshin_ollama    | llama_model_loader: - kv  25:                      tokenizer.ggml.tokens arr[str,32064]   = ["<unk>", "<s>", "</s>", "<0x00>", "<...
+bunshin_ollama    | llama_model_loader: - kv  26:                      tokenizer.ggml.scores arr[f32,32064]   = [-1000.000000, -1000.000000, -1000.00...
+bunshin_ollama    | llama_model_loader: - kv  27:                  tokenizer.ggml.token_type arr[i32,32064]   = [3, 3, 4, 6, 6, 6, 6, 6, 6, 6, 6, 6, ...
+bunshin_ollama    | llama_model_loader: - kv  28:                tokenizer.ggml.bos_token_id u32              = 1
+bunshin_ollama    | llama_model_loader: - kv  29:                tokenizer.ggml.eos_token_id u32              = 32000
+bunshin_ollama    | llama_model_loader: - kv  30:            tokenizer.ggml.unknown_token_id u32              = 0
+bunshin_ollama    | llama_model_loader: - kv  31:            tokenizer.ggml.padding_token_id u32              = 32000
+bunshin_ollama    | llama_model_loader: - kv  32:               tokenizer.ggml.add_bos_token bool             = false
+bunshin_ollama    | llama_model_loader: - kv  33:               tokenizer.ggml.add_eos_token bool             = false
+bunshin_ollama    | llama_model_loader: - kv  34:                    tokenizer.chat_template str              = {% for message in messages %}{% if me...
+bunshin_ollama    | llama_model_loader: - kv  35:               general.quantization_version u32              = 2
+bunshin_ollama    | llama_model_loader: - type  f32:   67 tensors
+bunshin_ollama    | llama_model_loader: - type q4_0:  129 tensors
+bunshin_ollama    | llama_model_loader: - type q6_K:    1 tensors
+bunshin_ollama    | print_info: file format = GGUF V3 (latest)
+bunshin_ollama    | print_info: file type   = Q4_0
+bunshin_ollama    | print_info: file size   = 2.03 GiB (4.55 BPW) 
+bunshin_ollama    | load: printing all EOG tokens:
+bunshin_ollama    | load:   - 32000 ('<|endoftext|>')
+bunshin_ollama    | load:   - 32007 ('<|end|>')
+bunshin_ollama    | load: special tokens cache size = 14
+bunshin_ollama    | load: token to piece cache size = 0.1685 MB
+bunshin_ollama    | print_info: arch             = phi3
+bunshin_ollama    | print_info: vocab_only       = 1
+bunshin_ollama    | print_info: no_alloc         = 0
+bunshin_ollama    | print_info: model type       = ?B
+bunshin_ollama    | print_info: model params     = 3.82 B
+bunshin_ollama    | print_info: general.name     = Phi 3 Mini 128k Instruct
+bunshin_ollama    | print_info: vocab type       = SPM
+bunshin_ollama    | print_info: n_vocab          = 32064
+bunshin_ollama    | print_info: n_merges         = 0
+bunshin_ollama    | print_info: BOS token        = 1 '<s>'
+bunshin_ollama    | print_info: EOS token        = 32000 '<|endoftext|>'
+bunshin_ollama    | print_info: EOT token        = 32007 '<|end|>'
+bunshin_ollama    | print_info: UNK token        = 0 '<unk>'
+bunshin_ollama    | print_info: PAD token        = 32000 '<|endoftext|>'
+bunshin_ollama    | print_info: LF token         = 13 '<0x0A>'
+bunshin_ollama    | print_info: EOG token        = 32000 '<|endoftext|>'
+bunshin_ollama    | print_info: EOG token        = 32007 '<|end|>'
+bunshin_ollama    | print_info: max token length = 48
+bunshin_ollama    | llama_model_load: vocab only - skipping tensors
+bunshin_ollama    | time=2026-06-01T11:48:38.291Z level=INFO source=server.go:433 msg="starting runner" cmd="/usr/bin/ollama runner --model /root/.ollama/models/blobs/sha256-633fc5be925f9a484b61d6f9b9a78021eeb462100bd557309f01ba84cac26adf --port 38063"
+bunshin_ollama    | time=2026-06-01T11:48:38.298Z level=INFO source=sched.go:484 msg="system memory" total="7.4 GiB" free="4.4 GiB" free_swap="1.9 GiB"
+bunshin_ollama    | time=2026-06-01T11:48:38.298Z level=INFO source=server.go:532 msg="loading model" "model layers"=33 requested=-1
+bunshin_ollama    | time=2026-06-01T11:48:38.301Z level=INFO source=device.go:245 msg="model weights" device=CPU size="2.0 GiB"
+bunshin_ollama    | time=2026-06-01T11:48:38.302Z level=INFO source=device.go:256 msg="kv cache" device=CPU size="1.5 GiB"
+bunshin_ollama    | time=2026-06-01T11:48:38.302Z level=INFO source=device.go:272 msg="total memory" size="3.5 GiB"
+bunshin_ollama    | time=2026-06-01T11:48:38.427Z level=INFO source=runner.go:965 msg="starting go runner"
+bunshin_ollama    | load_backend: loaded CPU backend from /usr/lib/ollama/libggml-cpu-haswell.so
+bunshin_ollama    | time=2026-06-01T11:48:38.465Z level=INFO source=ggml.go:104 msg=system CPU.0.SSE3=1 CPU.0.SSSE3=1 CPU.0.AVX=1 CPU.0.AVX2=1 CPU.0.F16C=1 CPU.0.FMA=1 CPU.0.BMI2=1 CPU.0.LLAMAFILE=1 CPU.1.LLAMAFILE=1 compiler=cgo(gcc)
+bunshin_ollama    | time=2026-06-01T11:48:38.501Z level=INFO source=runner.go:1001 msg="Server listening on 127.0.0.1:38063"
+bunshin_ollama    | time=2026-06-01T11:48:38.523Z level=INFO source=runner.go:895 msg=load request="{Operation:commit LoraPath:[] Parallel:1 BatchSize:512 FlashAttention:Auto KvSize:4096 KvCacheType: NumThreads:8 GPULayers:[] MultiUserCache:false ProjectorPath: MainGPU:0 UseMmap:false}"
+bunshin_ollama    | time=2026-06-01T11:48:38.526Z level=INFO source=server.go:1385 msg="waiting for llama runner to start responding"
+bunshin_ollama    | time=2026-06-01T11:48:38.528Z level=INFO source=server.go:1428 msg="waiting for server to become available" status="llm server loading model"
+bunshin_ollama    | llama_model_loader: loaded meta data with 36 key-value pairs and 197 tensors from /root/.ollama/models/blobs/sha256-633fc5be925f9a484b61d6f9b9a78021eeb462100bd557309f01ba84cac26adf (version GGUF V3 (latest))
+bunshin_ollama    | llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+bunshin_ollama    | llama_model_loader: - kv   0:                       general.architecture str              = phi3
+bunshin_ollama    | llama_model_loader: - kv   1:                               general.type str              = model
+bunshin_ollama    | llama_model_loader: - kv   2:                               general.name str              = Phi 3 Mini 128k Instruct
+bunshin_ollama    | llama_model_loader: - kv   3:                           general.finetune str              = 128k-instruct
+bunshin_ollama    | llama_model_loader: - kv   4:                           general.basename str              = Phi-3
+bunshin_ollama    | llama_model_loader: - kv   5:                         general.size_label str              = mini
+bunshin_ollama    | llama_model_loader: - kv   6:                            general.license str              = mit
+bunshin_ollama    | llama_model_loader: - kv   7:                       general.license.link str              = https://huggingface.co/microsoft/Phi-...
+bunshin_ollama    | llama_model_loader: - kv   8:                               general.tags arr[str,3]       = ["nlp", "code", "text-generation"]
+bunshin_ollama    | llama_model_loader: - kv   9:                          general.languages arr[str,1]       = ["en"]
+bunshin_ollama    | llama_model_loader: - kv  10:                        phi3.context_length u32              = 131072
+bunshin_ollama    | llama_model_loader: - kv  11:  phi3.rope.scaling.original_context_length u32              = 4096
+bunshin_ollama    | llama_model_loader: - kv  12:                      phi3.embedding_length u32              = 3072
+bunshin_ollama    | llama_model_loader: - kv  13:                   phi3.feed_forward_length u32              = 8192
+bunshin_ollama    | llama_model_loader: - kv  14:                           phi3.block_count u32              = 32
+bunshin_ollama    | llama_model_loader: - kv  15:                  phi3.attention.head_count u32              = 32
+bunshin_ollama    | llama_model_loader: - kv  16:               phi3.attention.head_count_kv u32              = 32
+bunshin_ollama    | llama_model_loader: - kv  17:      phi3.attention.layer_norm_rms_epsilon f32              = 0.000010
+bunshin_ollama    | llama_model_loader: - kv  18:                  phi3.rope.dimension_count u32              = 96
+bunshin_ollama    | llama_model_loader: - kv  19:                        phi3.rope.freq_base f32              = 10000.000000
+bunshin_ollama    | llama_model_loader: - kv  20:                          general.file_type u32              = 2
+bunshin_ollama    | llama_model_loader: - kv  21:              phi3.attention.sliding_window u32              = 262144
+bunshin_ollama    | llama_model_loader: - kv  22:              phi3.rope.scaling.attn_factor f32              = 1.190238
+bunshin_ollama    | llama_model_loader: - kv  23:                       tokenizer.ggml.model str              = llama
+bunshin_ollama    | llama_model_loader: - kv  24:                         tokenizer.ggml.pre str              = default
+bunshin_ollama    | llama_model_loader: - kv  25:                      tokenizer.ggml.tokens arr[str,32064]   = ["<unk>", "<s>", "</s>", "<0x00>", "<...
+bunshin_ollama    | llama_model_loader: - kv  26:                      tokenizer.ggml.scores arr[f32,32064]   = [-1000.000000, -1000.000000, -1000.00...
+bunshin_ollama    | llama_model_loader: - kv  27:                  tokenizer.ggml.token_type arr[i32,32064]   = [3, 3, 4, 6, 6, 6, 6, 6, 6, 6, 6, 6, ...
+bunshin_ollama    | llama_model_loader: - kv  28:                tokenizer.ggml.bos_token_id u32              = 1
+bunshin_ollama    | llama_model_loader: - kv  29:                tokenizer.ggml.eos_token_id u32              = 32000
+bunshin_ollama    | llama_model_loader: - kv  30:            tokenizer.ggml.unknown_token_id u32              = 0
+bunshin_ollama    | llama_model_loader: - kv  31:            tokenizer.ggml.padding_token_id u32              = 32000
+bunshin_ollama    | llama_model_loader: - kv  32:               tokenizer.ggml.add_bos_token bool             = false
+bunshin_ollama    | llama_model_loader: - kv  33:               tokenizer.ggml.add_eos_token bool             = false
+bunshin_ollama    | llama_model_loader: - kv  34:                    tokenizer.chat_template str              = {% for message in messages %}{% if me...
+bunshin_ollama    | llama_model_loader: - kv  35:               general.quantization_version u32              = 2
+bunshin_ollama    | llama_model_loader: - type  f32:   67 tensors
+bunshin_ollama    | llama_model_loader: - type q4_0:  129 tensors
+bunshin_ollama    | llama_model_loader: - type q6_K:    1 tensors
+bunshin_ollama    | print_info: file format = GGUF V3 (latest)
+bunshin_ollama    | print_info: file type   = Q4_0
+bunshin_ollama    | print_info: file size   = 2.03 GiB (4.55 BPW) 
+bunshin_ollama    | load_hparams: Phi SWA is currently disabled - results might be suboptimal for some models (see https://github.com/ggml-org/llama.cpp/pull/13676)
+bunshin_ollama    | load: printing all EOG tokens:
+bunshin_ollama    | load:   - 32000 ('<|endoftext|>')
+bunshin_ollama    | load:   - 32007 ('<|end|>')
+bunshin_ollama    | load: special tokens cache size = 14
+bunshin_ollama    | load: token to piece cache size = 0.1685 MB
+bunshin_ollama    | print_info: arch             = phi3
+bunshin_ollama    | print_info: vocab_only       = 0
+bunshin_ollama    | print_info: no_alloc         = 0
+bunshin_ollama    | print_info: n_ctx_train      = 131072
+bunshin_ollama    | print_info: n_embd           = 3072
+bunshin_ollama    | print_info: n_embd_inp       = 3072
+bunshin_ollama    | print_info: n_layer          = 32
+bunshin_ollama    | print_info: n_head           = 32
+bunshin_ollama    | print_info: n_head_kv        = 32
+bunshin_ollama    | print_info: n_rot            = 96
+bunshin_ollama    | print_info: n_swa            = 0
+bunshin_ollama    | print_info: is_swa_any       = 0
+bunshin_ollama    | print_info: n_embd_head_k    = 96
+bunshin_ollama    | print_info: n_embd_head_v    = 96
+bunshin_ollama    | print_info: n_gqa            = 1
+bunshin_ollama    | print_info: n_embd_k_gqa     = 3072
+bunshin_ollama    | print_info: n_embd_v_gqa     = 3072
+bunshin_ollama    | print_info: f_norm_eps       = 0.0e+00
+bunshin_ollama    | print_info: f_norm_rms_eps   = 1.0e-05
+bunshin_ollama    | print_info: f_clamp_kqv      = 0.0e+00
+bunshin_ollama    | print_info: f_max_alibi_bias = 0.0e+00
+bunshin_ollama    | print_info: f_logit_scale    = 0.0e+00
+bunshin_ollama    | print_info: f_attn_scale     = 0.0e+00
+bunshin_ollama    | print_info: n_ff             = 8192
+bunshin_ollama    | print_info: n_expert         = 0
+bunshin_ollama    | print_info: n_expert_used    = 0
+bunshin_ollama    | print_info: n_expert_groups  = 0
+bunshin_ollama    | print_info: n_group_used     = 0
+bunshin_ollama    | print_info: causal attn      = 1
+bunshin_ollama    | print_info: pooling type     = 0
+bunshin_ollama    | print_info: rope type        = 2
+bunshin_ollama    | print_info: rope scaling     = linear
+bunshin_ollama    | print_info: freq_base_train  = 10000.0
+bunshin_ollama    | print_info: freq_scale_train = 1
+bunshin_ollama    | print_info: n_ctx_orig_yarn  = 4096
+bunshin_ollama    | print_info: rope_yarn_log_mul= 0.0000
+bunshin_ollama    | print_info: rope_finetuned   = unknown
+bunshin_ollama    | print_info: model type       = 3B
+bunshin_ollama    | print_info: model params     = 3.82 B
+bunshin_ollama    | print_info: general.name     = Phi 3 Mini 128k Instruct
+bunshin_ollama    | print_info: vocab type       = SPM
+bunshin_ollama    | print_info: n_vocab          = 32064
+bunshin_ollama    | print_info: n_merges         = 0
+bunshin_ollama    | print_info: BOS token        = 1 '<s>'
+bunshin_ollama    | print_info: EOS token        = 32000 '<|endoftext|>'
+bunshin_ollama    | print_info: EOT token        = 32007 '<|end|>'
+bunshin_ollama    | print_info: UNK token        = 0 '<unk>'
+bunshin_ollama    | print_info: PAD token        = 32000 '<|endoftext|>'
+bunshin_ollama    | print_info: LF token         = 13 '<0x0A>'
+bunshin_ollama    | print_info: EOG token        = 32000 '<|endoftext|>'
+bunshin_ollama    | print_info: EOG token        = 32007 '<|end|>'
+bunshin_ollama    | print_info: max token length = 48
+bunshin_ollama    | load_tensors: loading model tensors, this can take a while... (mmap = false)
+bunshin_ollama    | load_tensors:          CPU model buffer size =  2074.66 MiB
+bunshin_api       | WARNING:bunshin.core.brain:⏰ SEUIL ATTEINT : Le modèle 'phi3:mini' a dépassé la limite de 20s !
+bunshin_api       | WARNING:bunshin.core.orchestrator:⚠️ Échec de planification au Stage 2 : Le modèle Ollama 'phi3:mini' a mis trop de temps à générer une réponse.
+bunshin_api       | INFO:bunshin.core.orchestrator:--- [Nœud : Exécution] (Stage 2 : phi3:mini) ---
+bunshin_api       | INFO:bunshin.core.orchestrator:--- [Nœud : Vérification] ---
+bunshin_api       | INFO:bunshin.core.orchestrator:⏱️ [Vérification] Validé : False. Prochain Stage ciblé : 3
+bunshin_api       | INFO:bunshin.core.orchestrator:--- [Nœud : Validation Humaine (HITL)] ---
+bunshin_api       | WARNING:bunshin.core.orchestrator:🚨 [INTERRUPT] Graphe gelé. En attente de l'approbation humaine (Bouton Rouge)...
+bunshin_api       | WARNING:bunshin.api:⏸️ Graphe suspendu (Stage 3 ciblé) sur le thread local_thread_1978fe18. En attente du feu vert de l'UI.
+bunshin_api       | INFO:     172.20.0.5:60040 - "POST /api/predict HTTP/1.1" 200 OK
+bunshin_ollama    | time=2026-06-01T11:48:57.966Z level=WARN source=server.go:1392 msg="client connection closed before server finished loading, aborting load"
+bunshin_ollama    | time=2026-06-01T11:48:57.976Z level=INFO source=sched.go:511 msg="Load failed" model=/root/.ollama/models/blobs/sha256-633fc5be925f9a484b61d6f9b9a78021eeb462100bd557309f01ba84cac26adf error="timed out waiting for llama runner to start: context canceled"
+bunshin_ollama    | [GIN] 2026/06/01 - 11:48:58 | 499 | 20.649597668s |      172.20.0.4 | POST     "/api/generate"
+bunshin_api       | INFO:bunshin.api:🔴 [BOUTON ROUGE] Autorisation Cloud Bursting validée pour le thread local_thread_1978fe18
+bunshin_api       | INFO:bunshin.core.orchestrator:--- [Nœud : Validation Humaine (HITL)] ---
+bunshin_api       | INFO:bunshin.core.orchestrator:--- [Nœud : Planification] (Stage 3 : qwen2.5-coder:32b) ---
+bunshin_api       | INFO:bunshin.core.orchestrator:--- [Nœud : Exécution] (Stage 3 : qwen2.5-coder:32b) ---
+bunshin_api       | INFO:bunshin.core.orchestrator:☁️ [CLOUD EXECUTION] Simulation de l'infrastructure distante...
+bunshin_api       | INFO:bunshin.core.orchestrator:--- [Nœud : Vérification] ---
+bunshin_api       | INFO:bunshin.core.orchestrator:⏱️ [Vérification] Validé : True. Prochain Stage ciblé : 3
+bunshin_api       | INFO:     172.20.0.5:56906 - "POST /api/predict HTTP/1.1" 200 OK
+
+
+v View in Docker Desktop   o View Config   w Enable Watch
+
+
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                        pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                        pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                        pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                        pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                        pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                        pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                        pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                        pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                        pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                        pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                        pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                        pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                        pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                        pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                        pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                        pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                        pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                        pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                        pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                        pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                        pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                        pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                        pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                        pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                        pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                        pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                        pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling manifest 
+pulling 633fc5be925f: 100% ▕▏ 2.2 GB                         
+pulling fa8235e5b48f: 100% ▕▏ 1.1 KB                         
+pulling 542b217f179c: 100% ▕▏  148 B                         
+pulling 8dde1baf1db0: 100% ▕▏   78 B                         
+pulling 23291dc44752: 100% ▕▏  483 B                         
+verifying sha256 digest 
+writing manifest 
+success 
+
+krbss@MSI MINGW64 /d/EPITECH/bunshinAI (main)
+$ ./log.sh
+bunshin_api  | INFO:bunshin.api:Compilation du graphe LangGraph Bunshin...
+bunshin_api  | INFO:bunshin.api:Graphe compilé et prêt à l'action.
+bunshin_api  | INFO:     Started server process [1]
+bunshin_api  | INFO:     Waiting for application startup.
+bunshin_api  | INFO:     Application startup complete.
+bunshin_api  | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+bunshin_api  | INFO:bunshin.api:Nouvelle requête reçue : 'qui est le president de la france?' sur le thread local_thread_1978fe18
+bunshin_api  | INFO:bunshin.core.orchestrator:--- [Nœud : Initialisation de la Stratégie] ---
+bunshin_api  | INFO:bunshin.core.orchestrator:--- [Nœud : Planification] (Stage 1 : qwen2.5-coder:1.5b) ---
+bunshin_api  | INFO:bunshin.core.brain:Envoi de la requête au modèle 'qwen2.5-coder:1.5b' via http://ollama:11434/api/generate (Timeout max autorisé : 15s)...
+bunshin_api  | WARNING:bunshin.core.brain:⏰ SEUIL ATTEINT : Le modèle 'qwen2.5-coder:1.5b' a dépassé la limite de 15s !
+bunshin_api  | WARNING:bunshin.core.orchestrator:⚠️ Échec de planification au Stage 1 : Le modèle Ollama 'qwen2.5-coder:1.5b' a mis trop de temps à générer une réponse.
+bunshin_api  | INFO:bunshin.core.orchestrator:--- [Nœud : Exécution] (Stage 1 : qwen2.5-coder:1.5b) ---
+bunshin_api  | INFO:bunshin.core.orchestrator:--- [Nœud : Vérification] ---
+bunshin_api  | INFO:bunshin.core.orchestrator:⏱️ [Vérification] Validé : False. Prochain Stage ciblé : 2
+bunshin_api  | INFO:bunshin.core.orchestrator:--- [Nœud : Validation Humaine (HITL)] ---
+bunshin_api  | INFO:bunshin.core.orchestrator:--- [Nœud : Planification] (Stage 2 : phi3:mini) ---
+bunshin_api  | INFO:bunshin.core.brain:Envoi de la requête au modèle 'phi3:mini' via http://ollama:11434/api/generate (Timeout max autorisé : 20s)...
+bunshin_api  | WARNING:bunshin.core.brain:⏰ SEUIL ATTEINT : Le modèle 'phi3:mini' a dépassé la limite de 20s !
+bunshin_api  | WARNING:bunshin.core.orchestrator:⚠️ Échec de planification au Stage 2 : Le modèle Ollama 'phi3:mini' a mis trop de temps à générer une réponse.
+bunshin_api  | INFO:bunshin.core.orchestrator:--- [Nœud : Exécution] (Stage 2 : phi3:mini) ---
+bunshin_api  | INFO:bunshin.core.orchestrator:--- [Nœud : Vérification] ---
+bunshin_api  | INFO:bunshin.core.orchestrator:⏱️ [Vérification] Validé : False. Prochain Stage ciblé : 3
+bunshin_api  | INFO:bunshin.core.orchestrator:--- [Nœud : Validation Humaine (HITL)] ---
+bunshin_api  | WARNING:bunshin.core.orchestrator:🚨 [INTERRUPT] Graphe gelé. En attente de l'approbation humaine (Bouton Rouge)...
+bunshin_api  | WARNING:bunshin.api:⏸️ Graphe suspendu (Stage 3 ciblé) sur le thread local_thread_1978fe18. En attente du feu vert de l'UI.
+bunshin_api  | INFO:     172.20.0.5:60040 - "POST /api/predict HTTP/1.1" 200 OK
+bunshin_api  | INFO:bunshin.api:🔴 [BOUTON ROUGE] Autorisation Cloud Bursting validée pour le thread local_thread_1978fe18
+bunshin_api  | INFO:bunshin.core.orchestrator:--- [Nœud : Validation Humaine (HITL)] ---
+bunshin_api  | INFO:bunshin.core.orchestrator:--- [Nœud : Planification] (Stage 3 : qwen2.5-coder:32b) ---
+bunshin_api  | INFO:bunshin.core.orchestrator:--- [Nœud : Exécution] (Stage 3 : qwen2.5-coder:32b) ---
+bunshin_api  | INFO:bunshin.core.orchestrator:☁️ [CLOUD EXECUTION] Simulation de l'infrastructure distante...
+bunshin_api  | INFO:bunshin.core.orchestrator:--- [Nœud : Vérification] ---
+bunshin_api  | INFO:bunshin.core.orchestrator:⏱️ [Vérification] Validé : True. Prochain Stage ciblé : 3
+bunshin_api  | INFO:     172.20.0.5:56906 - "POST /api/predict HTTP/1.1" 200 OK
+
+krbss@MSI MINGW64 /d/EPITECH/bunshinAI (main)
+$ 

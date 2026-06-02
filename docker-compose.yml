@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   chromadb:
     image: chromadb/chroma:latest
@@ -30,6 +28,8 @@ services:
     container_name: bunshin_api
     ports:
       - "8001:8000"
+    # La commande est maintenant intégrée au bon endroit :
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
     environment:
       - ENCRYPTION_KEY=${ENCRYPTION_KEY}
       - RUNPOD_API_KEY=${RUNPOD_API_KEY}
@@ -50,7 +50,8 @@ services:
     ports:
       - "3000:8501"
     environment:
-      - API_URL=http://fastapi_backend:8000
+      # Changé pour correspondre exactement à l'os.getenv("BACKEND_URL") de ui/app.py
+      - BACKEND_URL=http://fastapi_backend:8000/api/predict
     depends_on:
       - fastapi_backend
     networks:

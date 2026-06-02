@@ -33,14 +33,14 @@
 
 Bunshin maximise l'intelligence locale sur 16 Go de RAM tout en disposant d'une soupape Cloud pour les surcharges.
 
-| Principe | Décision technique | Gain RAM estimé |
-| :--- | :--- | :--- |
-| **Souveraineté** | Inférence locale via Ollama + `KEEP_ALIVE=0` | ~5.5 Go libérés entre requêtes |
-| **Légèreté** | Kuzu DB embarqué (remplace Neo4j) | ~1.3 Go |
-| **Légèreté** | Diskcache sur disque (remplace Redis) | ~0.3 Go |
-| **Séquençage** | `MAX_CONCURRENT_AGENTS=1` via `asyncio.Semaphore` | Évite les pics cumulés |
-| **Élasticité** | Cloud Bursting AES-256 si RAM libre < 1 Go + retry exponentiel | — |
-| **Résilience** | `AGENT_TIMEOUT=45` + `finally` kill containers Docker | Zéro container zombie |
+| Principe         | Décision technique                                             | Gain RAM estimé                |
+| :--------------- | :------------------------------------------------------------- | :----------------------------- |
+| **Souveraineté** | Inférence locale via Ollama + `KEEP_ALIVE=0`                   | ~5.5 Go libérés entre requêtes |
+| **Légèreté**     | Kuzu DB embarqué (remplace Neo4j)                              | ~1.3 Go                        |
+| **Légèreté**     | Diskcache sur disque (remplace Redis)                          | ~0.3 Go                        |
+| **Séquençage**   | `MAX_CONCURRENT_AGENTS=1` via `asyncio.Semaphore`              | Évite les pics cumulés         |
+| **Élasticité**   | Cloud Bursting AES-256 si RAM libre < 1 Go + retry exponentiel | —                              |
+| **Résilience**   | `AGENT_TIMEOUT=45` + `finally` kill containers Docker          | Zéro container zombie          |
 
 ---
 
@@ -216,11 +216,11 @@ flowchart TD
 
 ## 4. Décision architecturale — Images UI
 
-| Option | Avantages | Inconvénients | RAM estimée |
-| :--- | :--- | :--- | :--- |
-| **A — Deux images séparées** ✅ | Isolation totale, healthcheck précis, redémarrage ciblé | Deux builds | ~360 Mo |
-| **B — `supervisor`** | Un seul build | Si Streamlit crash, FastAPI reste sans raison | ~200 Mo |
-| **C — `honcho`** | Simple Procfile | Supervision partielle | ~190 Mo |
+| Option                          | Avantages                                               | Inconvénients                                 | RAM estimée |
+| :------------------------------ | :------------------------------------------------------ | :-------------------------------------------- | :---------- |
+| **A — Deux images séparées** ✅ | Isolation totale, healthcheck précis, redémarrage ciblé | Deux builds                                   | ~360 Mo     |
+| **B — `supervisor`**            | Un seul build                                           | Si Streamlit crash, FastAPI reste sans raison | ~200 Mo     |
+| **C — `honcho`**                | Simple Procfile                                         | Supervision partielle                         | ~190 Mo     |
 
 **Décision retenue : Option A.** Sur 16 Go de RAM, la différence est négligeable. L'isolation garantit des logs séparés et un healthcheck fiable par service.
 
@@ -275,7 +275,7 @@ services:
 
   fastapi_backend:
     build:
-      context: .                       # Racine — accès à core/, memory/, safety/, cloud/
+      context: . # Racine — accès à core/, memory/, safety/, cloud/
       dockerfile: ui/Dockerfile.api
     restart: unless-stopped
     ports:
@@ -328,12 +328,12 @@ volumes:
 
 ### Référence des ports
 
-| Service | Port hôte | Port interne | Accès |
-| :--- | :--- | :--- | :--- |
-| Streamlit UI | 3000 | 3000 | http://localhost:3000 |
-| FastAPI | 8000 | 8000 | http://localhost:8000/docs |
-| ChromaDB | 8001 | 8000 | http://localhost:8001 (debug) |
-| Ollama | 11434 | 11434 | http://localhost:11434 (debug) |
+| Service      | Port hôte | Port interne | Accès                          |
+| :----------- | :-------- | :----------- | :----------------------------- |
+| Streamlit UI | 3000      | 3000         | http://localhost:3000          |
+| FastAPI      | 8000      | 8000         | http://localhost:8000/docs     |
+| ChromaDB     | 8001      | 8000         | http://localhost:8001 (debug)  |
+| Ollama       | 11434     | 11434        | http://localhost:11434 (debug) |
 
 > ℹ️ Communications **inter-conteneurs** : utiliser le nom du service Docker + port interne (ex: `http://chromadb:8000`). Les ports hôtes ne sont pas résolvables à l'intérieur du réseau Docker.
 
@@ -637,14 +637,14 @@ def reset():
 
 ### Tableau des endpoints
 
-| Méthode | Route | Description |
-| :--- | :--- | :--- |
-| GET | `/health` | Liveness probe Docker |
-| GET | `/ram` | Métriques RAM (total, libre, offload_required) |
-| GET | `/cost` | Coût Cloud cumulatif en USD |
-| POST | `/chat` | Envoie un prompt à l'orchestrateur |
-| POST | `/ingest` | Ingestion document (file_path, mode, dry_run) |
-| POST | `/reset` | Vide ChromaDB + Kuzu |
+| Méthode | Route     | Description                                    |
+| :------ | :-------- | :--------------------------------------------- |
+| GET     | `/health` | Liveness probe Docker                          |
+| GET     | `/ram`    | Métriques RAM (total, libre, offload_required) |
+| GET     | `/cost`   | Coût Cloud cumulatif en USD                    |
+| POST    | `/chat`   | Envoie un prompt à l'orchestrateur             |
+| POST    | `/ingest` | Ingestion document (file_path, mode, dry_run)  |
+| POST    | `/reset`  | Vide ChromaDB + Kuzu                           |
 
 ### `app.py` — Dashboard Streamlit (code complet)
 
@@ -830,10 +830,10 @@ CMD ["streamlit", "run", "app.py", "--server.port=3000", "--server.address=0.0.0
 
 ### Modèles
 
-| Rôle | Modèle | Variable `.env` |
-| :--- | :--- | :--- |
-| Inférence | `llama3:8b-instruct-q4_K_M` | `INFERENCE_MODEL` |
-| Embeddings | `nomic-embed-text` | `EMBEDDING_MODEL` |
+| Rôle       | Modèle                      | Variable `.env`   |
+| :--------- | :-------------------------- | :---------------- |
+| Inférence  | `llama3:8b-instruct-q4_K_M` | `INFERENCE_MODEL` |
+| Embeddings | `nomic-embed-text`          | `EMBEDDING_MODEL` |
 
 ### `memory/ingest_pipeline.py` — Code source complet (NEW v2.5)
 
@@ -1817,10 +1817,10 @@ bandit>=1.7.0          # NEW v2.5 — requis par full_scan() dans test_code_scan
 
 ## 15. Modes d'exécution des agents
 
-| Mode | Technologie | Imports autorisés | Réseau | Timeout |
-| :--- | :--- | :--- | :--- | :--- |
-| **Light** | `run_in_executor` + RestrictedPython | `json` `math` `re` `csv` `pathlib` `datetime` | Aucun | 45s |
-| **Heavy** | Docker Alpine (`--read-only`) + `finally: kill` | `pandas` `numpy` `scipy` `bs4` | `--network=none` | 45s |
+| Mode      | Technologie                                     | Imports autorisés                             | Réseau           | Timeout |
+| :-------- | :---------------------------------------------- | :-------------------------------------------- | :--------------- | :------ |
+| **Light** | `run_in_executor` + RestrictedPython            | `json` `math` `re` `csv` `pathlib` `datetime` | Aucun            | 45s     |
+| **Heavy** | Docker Alpine (`--read-only`) + `finally: kill` | `pandas` `numpy` `scipy` `bs4`                | `--network=none` | 45s     |
 
 > `requests` est dans `BLOCKED_ALWAYS` — incompatible avec `--network=none`. Pour des scripts nécessitant HTTP, un mode dédié avec réseau explicitement autorisé serait requis.
 
@@ -2573,70 +2573,70 @@ bash setup.sh && docker compose up -d
 
 ### 🔴 v2.2 — Bloquant
 
-| # | Fichier | Bug | Correction |
-| :--- | :--- | :--- | :--- |
-| 1 | `requirements.txt` | `spacy` absent | `spacy>=3.7.0` ajouté |
-| 2 | `.env.example` | `OLLAMA_HOST=localhost` erroné dans Docker | → `http://ollama:11434` |
-| 3 | `ui/Dockerfile.api` | Context `./ui` → pas d'accès aux autres modules | Context → `.` (racine) |
-| 4 | `docker-compose.yml` | `fastapi_backend` sans volumes `memory/` | Volumes montés |
-| 5 | `core/orchestrator.py` | `retry_count <= MAX_RETRIES` → boucle infinie | → `< MAX_RETRIES` |
-| 6 | `ui/app.py` | Dashboard incomplet | Code complet |
-| 7 | `ui/Dockerfile.streamlit` | Absent | Créé |
-| 8 | `ui/api_rest.py` | `ChatRequest`/`IngestRequest` non définies | Modèles Pydantic ajoutés |
+| #   | Fichier                   | Bug                                             | Correction               |
+| :-- | :------------------------ | :---------------------------------------------- | :----------------------- |
+| 1   | `requirements.txt`        | `spacy` absent                                  | `spacy>=3.7.0` ajouté    |
+| 2   | `.env.example`            | `OLLAMA_HOST=localhost` erroné dans Docker      | → `http://ollama:11434`  |
+| 3   | `ui/Dockerfile.api`       | Context `./ui` → pas d'accès aux autres modules | Context → `.` (racine)   |
+| 4   | `docker-compose.yml`      | `fastapi_backend` sans volumes `memory/`        | Volumes montés           |
+| 5   | `core/orchestrator.py`    | `retry_count <= MAX_RETRIES` → boucle infinie   | → `< MAX_RETRIES`        |
+| 6   | `ui/app.py`               | Dashboard incomplet                             | Code complet             |
+| 7   | `ui/Dockerfile.streamlit` | Absent                                          | Créé                     |
+| 8   | `ui/api_rest.py`          | `ChatRequest`/`IngestRequest` non définies      | Modèles Pydantic ajoutés |
 
 ### 🟡 v2.2 — Important
 
-| # | Fichier | Bug | Correction |
-| :--- | :--- | :--- | :--- |
-| 9 | `memory/ingest_pipeline.py` | `_embed_one()` non définie | Implémentée |
-| 10 | `safety/code_scanner.py` | `scan_imports()` non implémentée | AST + Bandit |
-| 11 | `agents_factory/executor.py` | `get_event_loop()` déprécié Python 3.10+ | → `get_running_loop()` |
-| 12 | `cloud/bridge.py` | Clé Fernet silencieuse → différente à chaque restart | `ValueError` explicite |
-| 13 | `ui/api_rest.py` | `/ingest` synchrone bloquait l'event loop | `run_in_executor` |
-| 14 | `ui/api_rest.py` | Pas de `CORSMiddleware` | Ajouté |
-| 15 | `requirements-host.txt` | `ollama`, `langgraph` absents | Ajoutés |
-| 16 | `docker-compose.yml` | Volume `logs/` absent sur `streamlit_ui` | Ajouté |
+| #   | Fichier                      | Bug                                                  | Correction             |
+| :-- | :--------------------------- | :--------------------------------------------------- | :--------------------- |
+| 9   | `memory/ingest_pipeline.py`  | `_embed_one()` non définie                           | Implémentée            |
+| 10  | `safety/code_scanner.py`     | `scan_imports()` non implémentée                     | AST + Bandit           |
+| 11  | `agents_factory/executor.py` | `get_event_loop()` déprécié Python 3.10+             | → `get_running_loop()` |
+| 12  | `cloud/bridge.py`            | Clé Fernet silencieuse → différente à chaque restart | `ValueError` explicite |
+| 13  | `ui/api_rest.py`             | `/ingest` synchrone bloquait l'event loop            | `run_in_executor`      |
+| 14  | `ui/api_rest.py`             | Pas de `CORSMiddleware`                              | Ajouté                 |
+| 15  | `requirements-host.txt`      | `ollama`, `langgraph` absents                        | Ajoutés                |
+| 16  | `docker-compose.yml`         | Volume `logs/` absent sur `streamlit_ui`             | Ajouté                 |
 
 ### 🔴 v2.3 — Bloquant
 
-| # | Fichier | Bug | Correction |
-| :--- | :--- | :--- | :--- |
-| 17 | `cloud/providers/runpod_adapter.py` | Absent | Créé |
-| 18 | `cloud/providers/base.py` | Absent | Créé |
-| 19 | `core/orchestrator.py` | Cloud documenté mais jamais câblé | `cloud_check_node` ajouté |
+| #   | Fichier                             | Bug                               | Correction                |
+| :-- | :---------------------------------- | :-------------------------------- | :------------------------ |
+| 17  | `cloud/providers/runpod_adapter.py` | Absent                            | Créé                      |
+| 18  | `cloud/providers/base.py`           | Absent                            | Créé                      |
+| 19  | `core/orchestrator.py`              | Cloud documenté mais jamais câblé | `cloud_check_node` ajouté |
 
 ### 🔴 v2.4 — Bloquant
 
-| # | Fichier | Bug | Correction |
-| :--- | :--- | :--- | :--- |
-| 20 | `pytest.ini` | Absent → tests `async def` ignorés silencieusement | `asyncio_mode = auto` |
-| 21 | `core/orchestrator.py` | `cloud_check_node` : stubs vides | Code complet |
-| 22 | `cloud/providers/runpod_adapter.py` | Stubs vides | Code complet |
-| 23 | `cloud/providers/base.py` | Imports `ABC`, `abstractmethod`, `os` manquants | Imports ajoutés |
-| 24 | `core/orchestrator.py` | `CLOUD_ENABLED` jamais lu | `os.getenv` ajouté |
+| #   | Fichier                             | Bug                                                | Correction            |
+| :-- | :---------------------------------- | :------------------------------------------------- | :-------------------- |
+| 20  | `pytest.ini`                        | Absent → tests `async def` ignorés silencieusement | `asyncio_mode = auto` |
+| 21  | `core/orchestrator.py`              | `cloud_check_node` : stubs vides                   | Code complet          |
+| 22  | `cloud/providers/runpod_adapter.py` | Stubs vides                                        | Code complet          |
+| 23  | `cloud/providers/base.py`           | Imports `ABC`, `abstractmethod`, `os` manquants    | Imports ajoutés       |
+| 24  | `core/orchestrator.py`              | `CLOUD_ENABLED` jamais lu                          | `os.getenv` ajouté    |
 
 ### 🔴 v2.5 — Bloquant (NEW)
 
-| # | Fichier | Bug | Correction |
-| :--- | :--- | :--- | :--- |
-| 25 | `cloud/cost_tracker.py` | **Code source absent du README** — importé par `bridge.py` et `api_rest.py`, démarrage impossible | Code source complet fourni en section 9 |
-| 26 | `memory/ingest_pipeline.py` | **Code source absent du README** — importé par `api_rest.py` et `setup.sh` | Code source complet fourni en section 8 |
-| 27 | `__init__.py` (×10) | Mentionnés dans une note mais jamais créés — `ModuleNotFoundError` garanti | `setup.sh` les crée + création manuelle documentée en section 2.2 |
-| 28 | `.gitignore` | Listé dans l'arborescence mais **contenu jamais fourni** | Contenu complet fourni en section 2.1 + `setup.sh` le génère |
-| 29 | `setup.sh` | Ne créait pas les `__init__.py`, ne validait pas `ENCRYPTION_KEY`, ne vérifiait pas `.gitignore` | Réécriture complète [1/8] → [8/8] |
-| 30 | `tests/unit/test_orchestrator_nodes.py` | `cloud.bridge` valide `ENCRYPTION_KEY` à l'import → `ValueError` dans tous les tests `cloud_check_*` de v2.4 | Fixture `set_encryption_key(autouse=True)` ajoutée |
+| #   | Fichier                                 | Bug                                                                                                          | Correction                                                        |
+| :-- | :-------------------------------------- | :----------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------- |
+| 25  | `cloud/cost_tracker.py`                 | **Code source absent du README** — importé par `bridge.py` et `api_rest.py`, démarrage impossible            | Code source complet fourni en section 9                           |
+| 26  | `memory/ingest_pipeline.py`             | **Code source absent du README** — importé par `api_rest.py` et `setup.sh`                                   | Code source complet fourni en section 8                           |
+| 27  | `__init__.py` (×10)                     | Mentionnés dans une note mais jamais créés — `ModuleNotFoundError` garanti                                   | `setup.sh` les crée + création manuelle documentée en section 2.2 |
+| 28  | `.gitignore`                            | Listé dans l'arborescence mais **contenu jamais fourni**                                                     | Contenu complet fourni en section 2.1 + `setup.sh` le génère      |
+| 29  | `setup.sh`                              | Ne créait pas les `__init__.py`, ne validait pas `ENCRYPTION_KEY`, ne vérifiait pas `.gitignore`             | Réécriture complète [1/8] → [8/8]                                 |
+| 30  | `tests/unit/test_orchestrator_nodes.py` | `cloud.bridge` valide `ENCRYPTION_KEY` à l'import → `ValueError` dans tous les tests `cloud_check_*` de v2.4 | Fixture `set_encryption_key(autouse=True)` ajoutée                |
 
 ### 🟡 v2.5 — Important (NEW)
 
-| # | Fichier | Bug | Correction |
-| :--- | :--- | :--- | :--- |
-| 31 | `requirements-host.txt` | `diskcache`, `chromadb`, `RestrictedPython`, `presidio-*`, `pydantic`, `bandit` absents → `pytest tests/unit/ -v` échouait hors Docker | 7 dépendances ajoutées |
-| 32 | `tests/unit/test_brain.py` | **Code source absent du README** | Code source complet fourni en section 16 |
-| 33 | `tests/unit/test_cost_tracker.py` | **Code source absent du README** | Code source complet fourni en section 16 |
-| 34 | `tests/unit/test_ingest.py` | **Code source absent du README** | Code source complet fourni en section 16 |
-| 35 | `tests/unit/test_code_scanner.py` | **Code source absent du README** | Code source complet fourni en section 16 |
-| 36 | `tests/unit/test_resource_monitor.py` | **Code source absent du README** | Code source complet fourni en section 16 |
-| 37 | `tests/security/test_sandbox_escape.py` | **Code source absent du README** | Code source complet fourni en section 16 |
+| #   | Fichier                                 | Bug                                                                                                                                    | Correction                               |
+| :-- | :-------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------------------- |
+| 31  | `requirements-host.txt`                 | `diskcache`, `chromadb`, `RestrictedPython`, `presidio-*`, `pydantic`, `bandit` absents → `pytest tests/unit/ -v` échouait hors Docker | 7 dépendances ajoutées                   |
+| 32  | `tests/unit/test_brain.py`              | **Code source absent du README**                                                                                                       | Code source complet fourni en section 16 |
+| 33  | `tests/unit/test_cost_tracker.py`       | **Code source absent du README**                                                                                                       | Code source complet fourni en section 16 |
+| 34  | `tests/unit/test_ingest.py`             | **Code source absent du README**                                                                                                       | Code source complet fourni en section 16 |
+| 35  | `tests/unit/test_code_scanner.py`       | **Code source absent du README**                                                                                                       | Code source complet fourni en section 16 |
+| 36  | `tests/unit/test_resource_monitor.py`   | **Code source absent du README**                                                                                                       | Code source complet fourni en section 16 |
+| 37  | `tests/security/test_sandbox_escape.py` | **Code source absent du README**                                                                                                       | Code source complet fourni en section 16 |
 
 ---
 
@@ -2691,4 +2691,6 @@ bash setup.sh && docker compose up -d
 
 ---
 
-*Bunshin v2.5 · Architecture Agentique Souverain · MSI Ryzen 7 7730U · 2026*
+_Bunshin v2.5 · Architecture Agentique Souverain · MSI Ryzen 7 7730U · 2026_
+
+(model llm conseillé par claude: Qwen2.5-Coder 32B)
